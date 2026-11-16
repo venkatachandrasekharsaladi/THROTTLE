@@ -1,0 +1,227 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * THROTTLE — "Racing Archive" design system.
+ * Archive Cream / Warm Paper grounds, Racing Red focal accents,
+ * Paddock Navy structure, Trophy Gold highlights.
+ */
+@theme inline {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.75rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
+  --color-elevated: var(--elevated);
+  --color-inset: var(--inset);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-muted: var(--elevated);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--elevated);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: var(--primary);
+  --color-destructive-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-map-land: var(--map-land);
+  --color-map-road: var(--map-road);
+  --color-map-water: var(--map-water);
+  --color-map-park: var(--map-park);
+
+  --shadow-plate: 2px 2px 0 var(--navy);
+  --shadow-soft: 0 1px 2px color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+
+:root {
+  --background: oklch(0.945 0.02 76);      /* Archive Cream */
+  --card: oklch(0.905 0.026 78);           /* Warm Paper */
+  --elevated: oklch(0.862 0.032 80);       /* Surface Elevated */
+  --inset: oklch(0.97 0.012 76);
+  --foreground: oklch(0.25 0 0);           /* Carbon Black */
+  --muted-foreground: oklch(0.5 0.02 245); /* Muted Steel, text-safe */
+  --primary: oklch(0.55 0.18 28);          /* Racing Red */
+  --primary-foreground: oklch(0.97 0.012 76);
+  --primary-soft: oklch(0.88 0.06 28);
+  --secondary: oklch(0.27 0.05 255);       /* Paddock Navy */
+  --secondary-foreground: oklch(0.945 0.02 76);
+  --navy: oklch(0.27 0.05 255);
+  --navy-foreground: oklch(0.945 0.02 76);
+  --gold: oklch(0.8 0.13 85);              /* Trophy Gold */
+  --gold-soft: oklch(0.9 0.08 88);
+  --gold-foreground: oklch(0.3 0.06 80);
+  --success: oklch(0.48 0.1 155);
+  --success-soft: oklch(0.88 0.05 155);
+  --border: oklch(0.25 0 0 / 15%);
+  --map-land: oklch(0.92 0.022 80);
+  --map-road: oklch(0.98 0.008 80);
+  --map-water: oklch(0.8 0.04 235);
+  --map-park: oklch(0.85 0.05 135);
+}
+
+.dark {
+  --background: oklch(0.17 0.02 255);
+  --card: oklch(0.215 0.025 255);
+  --elevated: oklch(0.27 0.03 255);
+  --inset: oklch(0.19 0.022 255);
+  --foreground: oklch(0.935 0.02 76);
+  --muted-foreground: oklch(0.72 0.02 245);
+  --primary: oklch(0.63 0.18 28);
+  --primary-foreground: oklch(0.98 0.01 76);
+  --primary-soft: oklch(0.33 0.08 28);
+  --secondary: oklch(0.8 0.05 245);
+  --secondary-foreground: oklch(0.17 0.02 255);
+  --navy: oklch(0.1 0.02 255);
+  --navy-foreground: oklch(0.935 0.02 76);
+  --gold: oklch(0.8 0.13 85);
+  --gold-soft: oklch(0.33 0.06 85);
+  --gold-foreground: oklch(0.88 0.1 88);
+  --success: oklch(0.72 0.12 155);
+  --success-soft: oklch(0.3 0.05 155);
+  --border: oklch(0.935 0.02 76 / 14%);
+  --map-land: oklch(0.24 0.025 255);
+  --map-road: oklch(0.34 0.025 255);
+  --map-water: oklch(0.3 0.05 240);
+  --map-park: oklch(0.3 0.04 150);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+/* Typography voices */
+@utility text-hero {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 42px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  @media (width >= 64rem) {
+    font-size: 56px;
+    line-height: 56px;
+  }
+}
+@utility text-headline-lg {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+@utility text-headline-md {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 26px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+@utility text-headline-sm {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+@utility text-label-caps {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+@utility text-mono-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+@utility text-data-lg {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+@utility text-data-md {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+}
+
+@utility hairline-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+@utility race-plate {
+  box-shadow: var(--shadow-plate);
+}
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400;
+  line-height: 1;
+  user-select: none;
+}
+.material-symbols-outlined.icon-filled {
+  font-variation-settings: "FILL" 1, "wght" 400;
+}

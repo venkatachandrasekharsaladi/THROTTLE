@@ -1,0 +1,7 @@
+[
+  {"capability": "code (5 screens: home, my bike, fuel map, community, profile)", "source": "Stitch HTML export", "outcome": "migrate", "status": "verified", "next_action": "none"},
+  {"capability": "design system (Paddock Editorial colors, fonts, spacing)", "source": "tailwind config + DESIGN.md", "outcome": "migrate", "status": "verified", "next_action": "none"},
+  {"capability": "images", "source": "remote Google-hosted images", "outcome": "rehosted as project assets", "status": "verified", "next_action": "none"},
+  {"capability": "interactions (likes, bookmarks, map/list toggle, logout confirm)", "source": "inline scripts", "outcome": "migrate", "status": "verified", "next_action": "none"},
+  {"capability": "schema/records/auth/storage/providers/endpoints/schedules/secrets", "source": "none present (static design export)", "outcome": "not applicable", "status": "accepted", "next_action": "none"}
+]
